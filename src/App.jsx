@@ -3,17 +3,43 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
+import Navbar from "./components/jsx/Navbar";
+import Home from "./components/jsx/Home";
+import SizeFinder from "./components/jsx/SizeFinder";
+import Print from "./components/jsx/Print";
+import Login from "./components/jsx/Login";
+import SignUp from "./components/jsx/SignUp";
+
+
 function App() {
-  const [count, setCount] = useState(0);
+  let component;
+
+  switch (window.location.pathname) {
+    case "/Home":
+      component = <Home />;
+      break;
+    case "/":
+      component = <Home />;
+      break;
+    // case "/SizeFinder":
+    //   component = <SizeFinder />;
+    //   break;
+    // case "/Print":
+    //   component = <Print />;
+    //   break;
+     case "/Login":
+       component = <Login />;
+       break;
+    // case "/SignUp":
+    //   component = <SignUp/>
+  }
+
+  console.log(window.location);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={reactLogo} className="logo react" alt="React logo" />
-
-        <h1>Hello from Amplify</h1>
-      </header>
-    </div>
+    <>
+      {component}
+    </>
   );
 }
 
